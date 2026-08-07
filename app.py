@@ -1,4 +1,4 @@
-app_py_content="""
+
 import streamlit as st
 import joblib
 import pandas as pd
@@ -174,4 +174,4 @@ if st.button("Predict Loan Default"): # This should be outside of the column con
     else:
         st.success(f"The model predicts that this borrower is UNLIKELY TO DEFAULT. (Probability: {prediction_proba:.2f})")
 st.markdown('''</div>''', unsafe_allow_html=True)
-"""
+
