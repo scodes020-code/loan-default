@@ -1,4 +1,4 @@
-
+app_py_content="""
 import streamlit as st
 import joblib
 import pandas as pd
@@ -105,7 +105,7 @@ with col3:
 
   Education = st.selectbox(
       "Education Level",
-      ('Bachelor's', 'High School', 'Master's', 'PhD'))
+      ('Bachelor\'s', 'High School', 'Master\'s', 'PhD'))
 
   EmploymentType = st.selectbox(
       "Employment Type",
@@ -138,7 +138,7 @@ if st.button("Predict Loan Default"): # This should be outside of the column con
     # Ensure the order and names match the training data X.columns
     input_data = pd.DataFrame([[Age, Income, LoanAmount, CreditScore, MonthsEmployed, NumCreditLines, InterestRate, LoanTerm, DTIRatio,
                                   1 if Education == 'High School' else 0,
-                                  1 if Education == 'Master's' else 0,
+                                  1 if Education == 'Master\'s' else 0,
                                   1 if Education == 'PhD' else 0,
                                   1 if EmploymentType == 'Part-time' else 0,
                                   1 if EmploymentType == 'Self-employed' else 0,
@@ -156,7 +156,7 @@ if st.button("Predict Loan Default"): # This should be outside of the column con
                                 [
                                     'Age', 'Income', 'LoanAmount', 'CreditScore', 'MonthsEmployed',
                                     'NumCreditLines', 'InterestRate', 'LoanTerm', 'DTIRatio',
-                                    'Education_High School', 'Education_Master's', 'Education_PhD',
+                                    'Education_High School', 'Education_Master\'s', 'Education_PhD',
                                     'EmploymentType_Part-time', 'EmploymentType_Self-employed',
                                     'EmploymentType_Unemployed', 'MaritalStatus_Married', 'MaritalStatus_Single',
                                     'HasMortgage_Yes', 'HasDependents_Yes', 'LoanPurpose_Business',
@@ -174,3 +174,4 @@ if st.button("Predict Loan Default"): # This should be outside of the column con
     else:
         st.success(f"The model predicts that this borrower is UNLIKELY TO DEFAULT. (Probability: {prediction_proba:.2f})")
 st.markdown('''</div>''', unsafe_allow_html=True)
+"""
