@@ -133,7 +133,7 @@ with col3:
 
 # Prediction button
 st.markdown('''<div style='text-align:center;'>''', unsafe_allow_html=True)
-if st.button("Predict Loan Default"):
+if st.button("Predict Loan Default"): # This should be outside of the column context
     # Prepare features for the model
     # Ensure the order and names match the training data X.columns
     input_data = pd.DataFrame([[Age, Income, LoanAmount, CreditScore, MonthsEmployed, NumCreditLines, InterestRate, LoanTerm, DTIRatio,
@@ -152,7 +152,8 @@ if st.button("Predict Loan Default"):
                                   1 if LoanPurpose == 'Home' else 0,
                                   1 if LoanPurpose == 'Other' else 0,
                                   1 if HasCoSigner == 'Yes' else 0]],
-                                columns=[
+                                columns=
+                                [
                                     'Age', 'Income', 'LoanAmount', 'CreditScore', 'MonthsEmployed',
                                     'NumCreditLines', 'InterestRate', 'LoanTerm', 'DTIRatio',
                                     'Education_High School', 'Education_Master's', 'Education_PhD',
@@ -173,4 +174,3 @@ if st.button("Predict Loan Default"):
     else:
         st.success(f"The model predicts that this borrower is UNLIKELY TO DEFAULT. (Probability: {prediction_proba:.2f})")
 st.markdown('''</div>''', unsafe_allow_html=True)
-
